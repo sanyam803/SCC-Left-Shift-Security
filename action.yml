@@ -1,0 +1,18 @@
+name: 'VAX Generator'
+description: 'Generates SBOM & VAX for the Repository and persist it in GCP Bucket'
+inputs :
+  gcs_credentials : # gcp creds
+    description: 'gcp creds'
+    required: true
+  repo-token : # Repo access Token
+    description: 'Token to access Repo'
+    required: true
+  planFilePath : # Target file path
+    description: 'Path of the Repo to be scanned'
+    required: true 
+  sarifFilePath : # Target file path
+    description: 'Path of the Repo to be used for uploading SARIF file'
+    required: true   
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
